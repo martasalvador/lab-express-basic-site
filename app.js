@@ -17,6 +17,9 @@ app.get('/', (req, res) => {
 app.get('/tienda', (req, res) => {
     Product
         .find()
+        .sort({
+            price: 1
+        })
         .then(allProducts => {
             res.render('products-page', { products: allProducts })
         })
